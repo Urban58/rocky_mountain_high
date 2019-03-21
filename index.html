@@ -124,6 +124,7 @@ function drawMap(dataLayer) {
       });
     });
 }
+// begin getClassBreaks function------------------------------------------------
 function getClassBreaks(dataLayer) {
 
   // create empty Array for storing values
@@ -145,11 +146,18 @@ function getClassBreaks(dataLayer) {
   });
 console.log(breaks);
   return breaks; // return Array of class breaks
-} // end getClassBreaks functiontablish classification breaks
+} // end getClassBreaks function------------------------------------------------
 
-// begin getClassBBreaks function-----------------------------------------------
-
-// end getClassBreaks function
+// begin getColor function------------------------------------------------------
+function getColor(d) {
+  return d > 69.5 ? '#BD0026' :
+         d > 38.1  ? '#FC4E2A' :
+         d > 15.3  ? '#FD8D3C' :
+         d > -1.7  ? '#FEB24C' :
+         d > -32.6   ? '#FED976' :
+                    'whitesmoke';
+}
+// end getColor function--------------------------------------------------------
   </script>
 
 </body>
