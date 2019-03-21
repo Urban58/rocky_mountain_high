@@ -79,6 +79,7 @@
   	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
     <script>
     		// Map options
     		var options = {
@@ -128,11 +129,29 @@ function drawMap(dataLayer) {
 // begin getClassBBreaks function-----------------------------------------------
 function getClassBreaks(dataLayer) {
 
-  // code here to determine range and establish classification breaks
+  // create empty Array for storing values
+  var values = [];
+
+  // loop through all the counties
+  dataLayer.eachLayer(function(layer) {
+    var props = layer.feature.properties;
+    var value = props[attributeValue];
+    values.push(value);
+  });
+
+  // determine similar clusters
+  var clusters = ss.ckmeans(values, 5);
+
+  // create an array of the lowest value within each cluster
+  var breaks = clusters.map(function(cluster){
+    return [cluster[0],cluster.pop()];
+  });
+console.log(breaks); // verify your break values
+  return breaks; // return Array of class breaks
+} // end getClassBreaks function
 
 
 
-}
   </script>
 
 </body>
