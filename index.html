@@ -124,8 +124,14 @@ function drawMap(dataLayer) {
 
 
   var breaks = getClassBreaks(dataLayer);
+  dataLayer.eachLayer(function(layer) {
 
-}
+      var props = layer.feature.properties;
+
+      layer.setStyle({
+        fillColor: getColor(props[attributeValue], breaks)
+      });
+    });
 // begin getClassBBreaks function-----------------------------------------------
 function getClassBreaks(dataLayer) {
 
@@ -138,7 +144,7 @@ function getClassBreaks(dataLayer) {
     var value = props[attributeValue];
     values.push(value);
   });
-
+}
   // determine similar clusters
   var clusters = ss.ckmeans(values, 5);
 
