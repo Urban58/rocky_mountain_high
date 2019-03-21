@@ -33,8 +33,6 @@
       display: inline-block;
       color: #001323;
     }
-
-
     #map {
       width: 80%;
       height: 640px;
@@ -100,7 +98,6 @@
     		};
     		// Request some basemap tiles and add to the map
     		var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
-
 var attributeValue = "percent_change";
         var countyLayer = $.getJSON("../data/counties_pops.geojson", function(data) {
           var dataLayer = L.geoJson(data, {
@@ -113,51 +110,21 @@ var attributeValue = "percent_change";
               };
 }
           }).addTo(map);
-
           // call to new function here gets the data out of the
           // callback function
           drawMap(dataLayer);
 });
-
 // begin drawMap function-------------------------------------------------------
 function drawMap(dataLayer) {
-
-
-  var breaks = getClassBreaks(dataLayer);
   dataLayer.eachLayer(function(layer) {
+console.log(layer);
 
-      var props = layer.feature.properties;
 
-      layer.setStyle({
-        fillColor: getColor(props[attributeValue], breaks)
-      });
-    });
+ });
+
 // begin getClassBBreaks function-----------------------------------------------
-function getClassBreaks(dataLayer) {
 
-  // create empty Array for storing values
-  var values = [];
-
-  // loop through all the counties
-  dataLayer.eachLayer(function(layer) {
-    var props = layer.feature.properties;
-    var value = props[attributeValue];
-    values.push(value);
-  });
-}
-  // determine similar clusters
-  var clusters = ss.ckmeans(values, 5);
-
-  // create an array of the lowest value within each cluster
-  var breaks = clusters.map(function(cluster){
-    return [cluster[0],cluster.pop()];
-  });
-console.log(breaks); // verify your break values
-  return breaks; // return Array of class breaks
-} // end getClassBreaks function
-
-
-
+}// end getClassBreaks function
   </script>
 
 </body>
