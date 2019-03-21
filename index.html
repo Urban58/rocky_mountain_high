@@ -100,11 +100,18 @@
     		// Request some basemap tiles and add to the map
     		var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
 
-        $.getJSON("../data/counties_pops.geojson", function(data) {
-          L.geoJson(data).addTo(map);
-
+        var countyLayer = $.getJSON("../data/counties_pops.geojson", function(data) {
+          var dataLayer = L.geoJson(data, {
+            style: function(feature) {
+              return {
+                color: '#dddddd',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: '#1f78b4'
+              };
+}
+          }).addTo(map);
 });
-
   </script>
 
 </body>
