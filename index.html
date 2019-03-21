@@ -37,7 +37,7 @@
 
     #map {
       width: 80%;
-      height: 540px;
+      height: 640px;
       margin: 10px 10%;
       background: #585858;
       border: 2px solid #dddedf;
@@ -80,8 +80,9 @@
     <script>
     		// Map options
     		var options = {
-    			center: [38, -95],
-    			zoom: 4
+    			center: [40.76, -109.89],
+    			zoom: 5.2,
+          zoomSnap: .1
     		}
     		// Create a Leaflet map in our division container with id of 'map'
     		var map = L.map('map', options);
