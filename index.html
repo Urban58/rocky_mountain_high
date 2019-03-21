@@ -228,6 +228,37 @@ function drawLegend(breaks){
     // add the legend to the map
     legend.addTo(map);
 }
+
+// add mountain states layer----------------------------------------------------
+// Tell jQuery to wait until data is loaded before executing a function
+$.when(countyLayer).done(function () {
+  // load, filter, and style the state outline
+  $.getJSON("../data/mountain_states.geojson", function (data) {
+
+      var stateLayer = L.geoJson(data, {
+        style: function (feature) {
+          return {
+            // Let's experiment with these colors shortly
+            // color: '#222222', // Gray
+            color: 'black', // White
+            // Make line weight larger than the county outline
+            weight: .6,
+            fillOpacity: 0,
+            // This property allows us control interactivty of layer
+            interactive: false
+          };
+        },
+
+
+      });
+
+      // Add layer to map!
+      stateLayer.addTo(map)
+
+  });
+});
+
+// end add mountain states layer------------------------------------------------
   </script>
 
 </body>
