@@ -122,6 +122,11 @@ function drawMap(dataLayer) {
       layer.setStyle({
         fillColor: getColor(props[attributeValue], breaks)
       });
+      // bind tooltip with script
+      layer.bindTooltip("<b>" + "County:" + " " + "</b>" + layer.feature.properties.NAME + "</br>"
+      + "<b>" + "2000 Pop:" + " " + "</b>" + layer.feature.properties.pop_2000.toLocaleString() + "</br>" + "<b>" + "2017 Pop:"
+      + " " + "</b>" + layer.feature.properties.pop_2017.toLocaleString()  + "<b>" + "</br>" + "Percent Change:" + "</b>" + " "
+      + layer.feature.properties.percent_change + "%");
     });
 }
 // begin getClassBreaks function------------------------------------------------
@@ -154,7 +159,7 @@ function getColor(d) {
          d > 38.1  ? '#FC4E2A' :
          d > 15.3  ? '#FD8D3C' :
          d > -1.7  ? '#FEB24C' :
-         d > -32.6   ? '#FED976' :
+         d > -32.6   ? 'whitesmoke' :
                     'whitesmoke';
 }
 // end getColor function--------------------------------------------------------
