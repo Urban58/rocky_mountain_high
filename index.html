@@ -116,15 +116,40 @@ var attributeValue = "percent_change";
 });
 // begin drawMap function-------------------------------------------------------
 function drawMap(dataLayer) {
+  var breaks = getClassBreaks(dataLayer);
   dataLayer.eachLayer(function(layer) {
-console.log(layer);
+      var props = layer.feature.properties;
+      layer.setStyle({
+        fillColor: getColor(props[attributeValue], breaks)
+      });
+    });
+}
+function getClassBreaks(dataLayer) {
 
+  // create empty Array for storing values
+  var values = [];
 
- });
+  // loop through all the counties
+  dataLayer.eachLayer(function(layer) {
+    var props = layer.feature.properties;
+    var value = props[attributeValue];
+    values.push(value);
+  });
+
+  // determine similar clusters
+  var clusters = ss.ckmeans(values, 5);
+
+  // create an array of the lowest value within each cluster
+  var breaks = clusters.map(function(cluster){
+    return [cluster[0],cluster.pop()];
+  });
+console.log(breaks);
+  return breaks; // return Array of class breaks
+} // end getClassBreaks functiontablish classification breaks
 
 // begin getClassBBreaks function-----------------------------------------------
 
-}// end getClassBreaks function
+// end getClassBreaks function
   </script>
 
 </body>
