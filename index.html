@@ -285,13 +285,18 @@ $.when(countyLayer).done(function () {
 */
 $.when(countyLayer).done(function () {
 L.geoJson(cities, {
-    pointToLayer: function(feature, latlng) {
-        return L.circleMarker(latlng);
+    pointToLayer: function(feature,latlng) {
+            return L.circleMarker(latlng, {
+              fillColor: 'blue',
+              color: 'blue',
+              fillOpacity: .2,
+              weight: 1,
+              radius: feature.properties.percent_change
+                // options go here
+            });
     }
 }).addTo(map);
-
 });
-
   </script>
 
 </body>
