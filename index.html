@@ -101,10 +101,10 @@
         prepared by U.S. Census Bureau, 2017.</p>
       </footer>
 
-  	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
     <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
     <script>
     		// Map options
     		var options = {
@@ -126,6 +126,8 @@
     		// Request some basemap tiles and add to the map
     		var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
 var attributeValue = "percent_change";
+
+
         var countyLayer = $.getJSON("../data/counties_pops.geojson", function(data) {
           var dataLayer = L.geoJson(data, {
             style: function(feature) {
@@ -259,11 +261,27 @@ $.when(countyLayer).done(function () {
 });
 
 // end add mountain states layer------------------------------------------------
-var cityLayer = $.getJSON("../data/mountain_cities4.geojson", function(data) {
-    // the data loaded from the file is accessible here within this function scope!
-    L.geoJson(data).addTo(map);
-    console.log(data);
+$.getJSON("data/mountain_cities5.geojson", function(data) {
+  // add GeoJSON layer to the map once the file is loaded
+  var datalayer = L.geoJson(data ,{
+  onEachFeature: function(feature, featureLayer) {
+  featureLayer.bindPopup("<b>" + "Name:" + " " + "</b>" + feature.properties.NAME + "</br>"
+  + "<b>" + "2000 Pop:" + " " + "</b>" + feature.properties.pop_2000 + "</br>" + "<b>" + "2017 Pop:"
+  + " " + "</b>" + feature.properties.pop_2017  + "<b>" + "</br>" + "Percent Change:" + "</b>" + " "
+  + feature.properties.percent_change + "%");
+  }
+}).addTo(map);
+  map.fitBounds(datalayer.getBounds());
   });
+
+
+  // call to new function here gets the data out of the
+  // callback function
+
+
+
+
+
   </script>
 
 </body>
