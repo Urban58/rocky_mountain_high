@@ -184,13 +184,14 @@ console.log(breaks);
 } // end getClassBreaks function------------------------------------------------
 
 // begin getColor function------------------------------------------------------
-function getColor(d) {
-  return d > 69.5 ? '#BD0026' :
-         d > 38.1  ? '#FC4E2A' :
-         d > 15.3  ? '#FD8D3C' :
-         d > -1.7  ? '#FEB24C' :
-         d > -32.6 ? '#BDBDBD':
-                    '#E6E6E6';
+function getColor(d, breaks) {
+  console.log(d, breaks)
+  return d <= breaks[0][1] ? '#BDBDBD' :
+         d <= breaks[1][1]  ? '#FEB24C' :
+         d <= breaks[2][1]  ? '#FD8D3C' :
+         d <= breaks[3][1]  ? '#FC4E2A' :
+         d <= breaks[4][1]   ? '#BD0026':
+                    'whitesmoke'; // Should have none of these
 }
 // end getColor function--------------------------------------------------------
 
@@ -220,7 +221,7 @@ function drawLegend(breaks){
             div.innerHTML +=
                 '<span style="background:' + color + '"></span> ' +
                 '<label>'+(breaks[i][0]).toLocaleString() + '% &mdash; ' +
-                (breaks[i][1]).toLocaleString() + '%</label>';
+                (breaks[i][0]).toLocaleString() + '%</label>';
         }
 
         // return the populated div to be added to the map
