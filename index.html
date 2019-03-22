@@ -179,13 +179,13 @@ function getClassBreaks(dataLayer) {
   var breaks = clusters.map(function(cluster){
     return [cluster[0],cluster.pop()];
   });
-console.log(breaks);
+/*console.log(breaks);*/
   return breaks; // return Array of class breaks
 } // end getClassBreaks function------------------------------------------------
 
 // begin getColor function------------------------------------------------------
 function getColor(d, breaks) {
-  console.log(d, breaks)
+  /*console.log(d, breaks)*/
   return d <= breaks[0][1] ? '#BDBDBD' :
          d <= breaks[1][1]  ? '#FEB24C' :
          d <= breaks[2][1]  ? '#FD8D3C' :
@@ -261,7 +261,7 @@ $.when(countyLayer).done(function () {
   });
 });
 
-// end add mountain states layer------------------------------------------------
+// end add mountain cities layer------------------------------------------------
 $.getJSON("data/mountain_cities5.geojson", function(data) {
   // add GeoJSON layer to the map once the file is loaded
   var datalayer = L.geoJson(data ,{
