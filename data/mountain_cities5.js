@@ -1,4 +1,4 @@
-{
+var cities = {
 "type": "FeatureCollection",
 "name": "mountain_cities5",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
