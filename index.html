@@ -265,7 +265,7 @@ $.getJSON("data/mountain_cities5.geojson", function(data) {
   // add GeoJSON layer to the map once the file is loaded
   var datalayer = L.geoJson(data ,{
   onEachFeature: function(feature, featureLayer) {
-  featureLayer.bindPopup("<b>" + "Name:" + " " + "</b>" + feature.properties.NAME + "</br>"
+  featureLayer.bindPopup("<b>" + "City:" + " " + "</b>" + feature.properties.NAME + "</br>"
   + "<b>" + "2000 Pop:" + " " + "</b>" + feature.properties.pop_2000.toLocaleString() + "</br>" + "<b>" + "2017 Pop:"
   + " " + "</b>" + feature.properties.pop_2017.toLocaleString()  + "<b>" + "</br>" + "Percent Change:" + "</b>" + " "
   + feature.properties.percent_change + "%");
