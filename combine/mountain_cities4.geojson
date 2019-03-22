@@ -74,4 +74,3 @@
 { "type": "Feature", "properties": { "NAME": "Tucson", "FIPS": "04019", "FIPS55": "77000", "STATE": "AZ", "orig_ogc_fid": 15957, "2000_population": 486699, "2017_population": 530905, "percent_change": 9.1 }, "geometry": { "type": "Point", "coordinates": [ -110.927795, 32.222092 ] } },
 { "type": "Feature", "properties": { "NAME": "Yuma", "FIPS": "04027", "FIPS55": "85540", "STATE": "AZ", "orig_ogc_fid": 15979, "2000_population": 77515, "2017_population": 93851, "percent_change": 21.1 }, "geometry": { "type": "Point", "coordinates": [ -114.626266, 32.725311 ] } }
 ]
-}
