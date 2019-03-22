@@ -219,8 +219,8 @@ function drawLegend(breaks){
             // of that class and include a label with the low and a high ends of that class range
             div.innerHTML +=
                 '<span style="background:' + color + '"></span> ' +
-                '<label>'+(breaks[i][0]).toLocaleString() + ' &mdash; ' +
-                (breaks[i][1]).toLocaleString() + '</label>';
+                '<label>'+(breaks[i][0]).toLocaleString() + '% &mdash; ' +
+                (breaks[i][1]).toLocaleString() + '%</label>';
         }
 
         // return the populated div to be added to the map
