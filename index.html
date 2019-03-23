@@ -255,6 +255,10 @@ $.when(countyLayer).done(function () {
   // callback function
 */
 $.when(countyLayer).done(function () {
+  cities.features.sort(function(a, b) {
+    return b.properties.percent_change - a.properties.percent_change;
+  });
+
 L.geoJson(cities, {
     pointToLayer: function(feature,latlng) {
             return L.circleMarker(latlng, {
