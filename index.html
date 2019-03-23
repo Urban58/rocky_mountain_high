@@ -201,10 +201,10 @@ function getClassBreaks(dataLayer) {
 function getColor(d, breaks) {
   /*console.log(d, breaks)*/
   return d <= breaks[0][1] ? '#BDBDBD' :
-         d <= breaks[1][1]  ? '#FEB24C' :
-         d <= breaks[2][1]  ? '#FD8D3C' :
-         d <= breaks[3][1]  ? '#E31A1C' :
-         d <= breaks[4][1]   ? '#800026':
+         d <= breaks[1][1]  ? '#fdbe85' :
+         d <= breaks[2][1]  ? '#fd8d3c' :
+         d <= breaks[3][1]  ? '#e6550d' :
+         d <= breaks[4][1]   ? '#a63603':
                     'whitesmoke'; // Should have none of these
 }
 // end getColor function--------------------------------------------------------
