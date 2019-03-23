@@ -263,7 +263,7 @@
       });
     });
     // end add mountain states layer--------------------------------------------
-    
+
     // begin add mountain cities layer------------------------------------------
     // Tell jQuery to wait until data is loaded before executing a function
     $.when(countyLayer).done(function() {
@@ -305,9 +305,6 @@
         }) // end L.geoJson method
         .addTo(map);
       // end add mountain cities layer------------------------------------------
-
-
-
       // begin L control layers method------------------------------------------
       var sourcesLayers = {
         "Cities": mountainCities // hydroLayer references a Leaflet L.GeoJSON layer
