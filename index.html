@@ -75,7 +75,6 @@
     display: block;
     clear: both;
 }
-
   </style>
 </head>
 
@@ -128,8 +127,6 @@
     		// Request some basemap tiles and add to the map
     		var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
 var attributeValue = "percent_change";
-
-
         var countyLayer = $.getJSON("../data/counties_pops.geojson", function(data) {
           var dataLayer = L.geoJson(data, {
             style: function(feature) {
@@ -163,20 +160,16 @@ function drawMap(dataLayer) {
 }
 // begin getClassBreaks function------------------------------------------------
 function getClassBreaks(dataLayer) {
-
   // create empty Array for storing values
   var values = [];
-
   // loop through all the counties
   dataLayer.eachLayer(function(layer) {
     var props = layer.feature.properties;
     var value = props[attributeValue];
     values.push(value);
   });
-
   // determine similar clusters
   var clusters = ss.ckmeans(values, 5);
-
   // create an array of the lowest value within each cluster
   var breaks = clusters.map(function(cluster){
     return [cluster[0],cluster.pop()];
@@ -184,7 +177,6 @@ function getClassBreaks(dataLayer) {
 /*console.log(breaks);*/
   return breaks; // return Array of class breaks
 } // end getClassBreaks function------------------------------------------------
-
 // begin getColor function------------------------------------------------------
 function getColor(d, breaks) {
   /*console.log(d, breaks)*/
@@ -196,28 +188,21 @@ function getColor(d, breaks) {
                     'whitesmoke'; // Should have none of these
 }
 // end getColor function--------------------------------------------------------
-
 function drawLegend(breaks){
-
     // create a new Leaflet control object, and position it top left
     var legend = L.control({position: 'bottomleft'});
-
     // when the legend is added to the map
     legend.onAdd = function () {
-
         // create a new HTML <div> element and give it a class name of "legend"
         var div = L.DomUtil.create('div', 'legend');
-
         // first append an <h3> tag to the div holding the current attribute
         // and norm values (i.e., the mapped phenomena)
         div.innerHTML = "<h3>" + "Percent Gain/Loss" + "</h3>";
-
         // for each of our breaks
         for (var i = 0; i < breaks.length; i++) {
             // determine the color associated with each break value,
             // including the lower range value
             var color = getColor(breaks[i][1], breaks);
-
             // concatenate a <span> tag styled with the color and the range values
             // of that class and include a label with the low and a high ends of that class range
             div.innerHTML +=
@@ -225,21 +210,17 @@ function drawLegend(breaks){
                 '<label>'+(breaks[i][0]).toLocaleString() + '% &mdash; ' +
                 (breaks[i][1]).toLocaleString() + '%</label>';
         }
-
         // return the populated div to be added to the map
         return div;
     };
-
     // add the legend to the map
     legend.addTo(map);
 }
-
 // add mountain states layer----------------------------------------------------
 // Tell jQuery to wait until data is loaded before executing a function
 $.when(countyLayer).done(function () {
   // load, filter, and style the state outline
   $.getJSON("../data/mountain_states.geojson", function (data) {
-
       var stateLayer = L.geoJson(data, {
         style: function (feature) {
           return {
@@ -253,16 +234,11 @@ $.when(countyLayer).done(function () {
             interactive: false
           };
         },
-
-
       });
-
       // Add layer to map!
       stateLayer.addTo(map)
-
   });
 });
-
 // end add mountain cities layer------------------------------------------------
 /*$.getJSON("data/mountain_cities5.geojson", function(data) {
   // add GeoJSON layer to the map once the file is loaded
@@ -273,13 +249,8 @@ $.when(countyLayer).done(function () {
   + " " + "</b>" + feature.properties.pop_2017.toLocaleString()  + "<b>" + "</br>" + "Percent Change:" + "</b>" + " "
   + feature.properties.percent_change + "%");
   }
-
-
 }).addTo(map);
-
 })
-
-
   // call to new function here gets the data out of the
   // callback function
 */
@@ -292,11 +263,24 @@ L.geoJson(cities, {
               fillOpacity: .2,
               weight: 1,
               radius: feature.properties.percent_change
-                // options go here
-            });
-    }
-}).addTo(map);
-});
+
+            }); // end return l.circleMarker
+    }, // end pointToLayer function
+onEachFeature : function(feature,layer) {
+  layer.bindPopup("<b>" + "City:" + " " + "</b>" + feature.properties.NAME + "," + " " + feature.properties.STATE + "</br>"
+  + "<b>" + "2000 Pop:" + " " + "</b>" + feature.properties.pop_2000.toLocaleString() + "</br>" + "<b>" + "2017 Pop:"
+  + " " + "</b>" + feature.properties.pop_2017.toLocaleString()  + "<b>" + "</br>" + "Percent Change:" + "</b>" + " "
+  + feature.properties.percent_change + "%");
+}
+
+
+}).addTo(map);   // end L.geoJson method
+
+
+}); // end when.done function
+
+
+
   </script>
 
 </body>
