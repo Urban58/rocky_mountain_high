@@ -95,7 +95,8 @@
       shown on the map had a population of at least 30,000 in 2000.  You can hover
     over a County and see the county's population in 2000 and 2017 and the percent change.
   You can also click on a city and see the same information.  The cities layer toggles
-  on and off.</p>
+  on and off. Data from 2000 is a population count (2000 Census) while data from 2017 is a
+population estimate (2012-2017 American Fact Finder).</p>
 
   <h4>What the Data Shows</h4>
   <p>Many counties of the Mountain States have seen large population growth between
@@ -113,7 +114,7 @@
         with U.S. County polygons downloaded from  <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
 
         <p>City population data layer produced by joining data downloaded from
-          <a href="http://factfinder.census.gov/">American Fact Finder</a>
+          <a href="https://mapcruzin.com/free-wireless-gis-maps/free-wireless-gis-maps.htm">MapCruzin</a>
             with U.S. County polygons downloaded from  <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
 
         <p>State boundaries downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.  All data
@@ -200,10 +201,10 @@ function getClassBreaks(dataLayer) {
 function getColor(d, breaks) {
   /*console.log(d, breaks)*/
   return d <= breaks[0][1] ? '#BDBDBD' :
-         d <= breaks[1][1]  ? '#fcae91' :
-         d <= breaks[2][1]  ? '#fb6a4a' :
-         d <= breaks[3][1]  ? '#de2d26' :
-         d <= breaks[4][1]   ? '#a50f15':
+         d <= breaks[1][1]  ? '#FEB24C' :
+         d <= breaks[2][1]  ? '#FD8D3C' :
+         d <= breaks[3][1]  ? '#E31A1C' :
+         d <= breaks[4][1]   ? '#800026':
                     'whitesmoke'; // Should have none of these
 }
 // end getColor function--------------------------------------------------------
