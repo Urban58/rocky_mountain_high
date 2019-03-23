@@ -271,6 +271,19 @@ L.geoJson(cities, {
             }); // end return l.circleMarker
     }, // end pointToLayer function
 onEachFeature : function(feature,layer) {
+  layer.on('mouseover', function() {
+    layer.setStyle({
+      fillColor: 'green',
+      fillOpacity: .6
+    });
+  });
+  layer.on('mouseout', function() {
+    layer.setStyle({
+        fillColor: 'blue',
+        fillOpacity: .2
+    });
+  });
+
   layer.bindPopup("<b>" + "City:" + " " + "</b>" + feature.properties.NAME + "," + " " + feature.properties.STATE + "</br>"
   + "<b>" + "2000 Pop:" + " " + "</b>" + feature.properties.pop_2000.toLocaleString() + "</br>" + "<b>" + "2017 Pop:"
   + " " + "</b>" + feature.properties.pop_2017.toLocaleString()  + "<b>" + "</br>" + "Percent Change:" + "</b>" + " "
