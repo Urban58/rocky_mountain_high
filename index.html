@@ -267,9 +267,10 @@
     // Tell jQuery to wait until data is loaded before executing a function
     $.when(countyLayer).done(function() {
       cities.features.sort(function(a, b) {
+        return b.properties.percent_change - a.properties.None_percent_change;
 
       });
-      
+
       var mountainCities = L.geoJson(cities, {
           pointToLayer: function(feature, latlng) {
             return L.circleMarker(latlng, {
