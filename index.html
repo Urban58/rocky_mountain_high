@@ -111,6 +111,11 @@
     <p>County population data layer produced by joining data downloaded from
       <a href="http://factfinder.census.gov/">American Fact Finder</a>
         with U.S. County polygons downloaded from  <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
+
+        <p>City population data layer produced by joining data downloaded from
+          <a href="http://factfinder.census.gov/">American Fact Finder</a>
+            with U.S. County polygons downloaded from  <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
+
         <p>State boundaries downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.  All data
         prepared by U.S. Census Bureau, 2017.</p>
       </footer>
@@ -195,10 +200,10 @@ function getClassBreaks(dataLayer) {
 function getColor(d, breaks) {
   /*console.log(d, breaks)*/
   return d <= breaks[0][1] ? '#BDBDBD' :
-         d <= breaks[1][1]  ? '#FEB24C' :
-         d <= breaks[2][1]  ? '#FD8D3C' :
-         d <= breaks[3][1]  ? '#FC4E2A' :
-         d <= breaks[4][1]   ? '#BD0026':
+         d <= breaks[1][1]  ? '#fcae91' :
+         d <= breaks[2][1]  ? '#fb6a4a' :
+         d <= breaks[3][1]  ? '#de2d26' :
+         d <= breaks[4][1]   ? '#a50f15':
                     'whitesmoke'; // Should have none of these
 }
 // end getColor function--------------------------------------------------------
