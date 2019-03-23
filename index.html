@@ -126,7 +126,7 @@
   <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
   <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
-  <script src="data/mountain_cities6.js"></script>
+  <script src="data/mountain_cities5.js"></script>
   <script>
     // Map options
     var options = {
@@ -263,13 +263,13 @@
       });
     });
     // end add mountain states layer--------------------------------------------
-
     // begin add mountain cities layer------------------------------------------
     // Tell jQuery to wait until data is loaded before executing a function
     $.when(countyLayer).done(function() {
       cities.features.sort(function(a, b) {
-        return b.properties.percent_change - a.properties.percent_change;
+
       });
+      
       var mountainCities = L.geoJson(cities, {
           pointToLayer: function(feature, latlng) {
             return L.circleMarker(latlng, {
@@ -277,7 +277,7 @@
               color: '#314DFE',
               fillOpacity: .2,
               weight: 1.3,
-              radius: feature.properties.proportional
+              radius: feature.properties.percent_change
             }); // end return l.circleMarker
           }, // end pointToLayer function
           onEachFeature: function(feature, layer) {
@@ -302,9 +302,14 @@
               " " + "</b>" + feature.properties.pop_2017.toLocaleString() + "<b>" + "</br>" +
               "Percent Change:" + "</b>" + " " + feature.properties.percent_change + "%");
           }
+
+
         }) // end L.geoJson method
         .addTo(map);
       // end add mountain cities layer------------------------------------------
+
+
+
       // begin L control layers method------------------------------------------
       var sourcesLayers = {
         "Cities": mountainCities // hydroLayer references a Leaflet L.GeoJSON layer
@@ -312,8 +317,13 @@
       L.control.layers(null, sourcesLayers, {
         collapsed: false
       }).addTo(map);
+
+
+
     }); // end when.done function
     // end L control layers method----------------------------------------------
+
+
   </script>
 
 </body>
