@@ -272,13 +272,14 @@
       });
 
       var mountainCities = L.geoJson(cities, {
+
           pointToLayer: function(feature, latlng) {
             return L.circleMarker(latlng, {
               fillColor: '#314DFE',
               color: '#314DFE',
               fillOpacity: .2,
               weight: 1.3,
-              radius: feature.properties.percent_change
+              radius: (Math.sqrt(feature.properties.percent_change/3.14))*4
             }); // end return l.circleMarker
           }, // end pointToLayer function
           onEachFeature: function(feature, layer) {
