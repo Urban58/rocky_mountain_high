@@ -126,7 +126,7 @@
   <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
   <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
-  <script src="data/mountain_cities5.js"></script>
+  <script src="data/mountain_cities6.js"></script>
   <script>
     // Map options
     var options = {
@@ -263,6 +263,7 @@
       });
     });
     // end add mountain states layer--------------------------------------------
+    
     // begin add mountain cities layer------------------------------------------
     // Tell jQuery to wait until data is loaded before executing a function
     $.when(countyLayer).done(function() {
@@ -276,7 +277,7 @@
               color: '#314DFE',
               fillOpacity: .2,
               weight: 1.3,
-              radius: feature.properties.percent_change/3
+              radius: feature.properties.proportional
             }); // end return l.circleMarker
           }, // end pointToLayer function
           onEachFeature: function(feature, layer) {
