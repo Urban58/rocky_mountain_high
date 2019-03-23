@@ -3,14 +3,14 @@
 
 <head>
   <meta charset=utf-8 />
-	<title>Rocky Mountain High</title>
-	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-	<link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
+  <title>Rocky Mountain High</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Lora|Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora|Roboto:400,700" rel="stylesheet">
 
   <style>
     body {
@@ -20,19 +20,23 @@
       font-family: Helvetica;
       color: #0D0000;
     }
+
     header {
       width: 80%;
       margin: 10px auto 10px auto;
     }
+
     h1 {
       display: inline-block;
       margin-right: 20px;
       color: #001323;
     }
-    h5{
+
+    h5 {
       display: inline-block;
       color: #001323;
     }
+
     #map {
       width: 80%;
       height: 640px;
@@ -40,41 +44,48 @@
       background: #585858;
       border: 2px solid #dddedf;
     }
+
     footer {
       padding: 6px 10%;
       width: 80%;
     }
+
     p {
       font-size: 1em;
       color: #001323;
     }
+
     .legend {
-    padding: 6px 8px;
-    font-size: 1em;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-}
-.legend h3 {
-    font-size: 1.1em;
-    font-weight: normal;
-    color: #001323;
-    margin: 0 0 10px 0;
-}
-.legend span {
-    width: 20px;
-    height: 20px;
-    float: left;
-    margin: 0 10px 4px 0;
-}
-.legend label {
-    font-size: 1.1em;
-}
-.legend label:after {
-    content: '';
-    display: block;
-    clear: both;
-}
+      padding: 6px 8px;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
+
+    .legend h3 {
+      font-size: 1.1em;
+      font-weight: normal;
+      color: #001323;
+      margin: 0 0 10px 0;
+    }
+
+    .legend span {
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin: 0 10px 4px 0;
+    }
+
+    .legend label {
+      font-size: 1.1em;
+    }
+
+    .legend label:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
   </style>
 </head>
 
@@ -92,127 +103,138 @@
     <h4>About this Map</h4>
     <p>This map shows the percentage of population growth for counties and
       cities in the Mountain States of the U.S. between 2000 and 2017. Cities
-      shown on the map had a population of at least 30,000 in 2000.  You can hover
-    over a County and see the county's population in 2000 and 2017 and the percent change.
-  You can also click on a city and see the same information.  The cities layer toggles
-  on and off. Data from 2000 is a population count (2000 Census) while data from 2017 is a
-population estimate (2012-2017 American Fact Finder).</p>
+      shown on the map had a population of at least 30,000 in 2000. You can hover
+      over a County and see the county's population in 2000 and 2017 and the percent change.
+      You can also click on a city and see the same information. The cities layer toggles
+      on and off. Data from 2000 is a population count (2000 Census) while data from 2017 is a
+      population estimate (2012-2017 American Fact Finder).</p>
 
-  <h4>What the Data Shows</h4>
-  <p>Many counties of the Mountain States have seen large population growth between
-  2000 and 2017. Counties in scenic or tourist areas such as those in western Colorado,
-  western Montana and central New Mexico have high percentages of growth.  Counties with traditional
-  retirement areas such as those in Arizona and southern Nevada also have high percentages of growth.</p>
+    <h4>What the Data Shows</h4>
+    <p>Many counties of the Mountain States have seen large population growth between
+      2000 and 2017. Counties in scenic or tourist areas such as those in western Colorado,
+      western Montana and central New Mexico have high percentages of growth. Counties with traditional
+      retirement areas such as those in Arizona and southern Nevada also have high percentages of growth.</p>
 
-  <p>Like many counties in the Mountain States, many cities in the Mountain States have also seen large population
-    growth.  Major cities such as Phoenix, Las Vegas and Denver have seen growth but it is their suburbs that have
-    the highest percentages of growth.  Smaller cities in scenic or tourist areas have also have seen a lot of population growth.</p>
+    <p>Like many counties in the Mountain States, many cities in the Mountain States have also seen large population
+      growth. Major cities such as Phoenix, Las Vegas and Denver have seen growth but it is their suburbs that have
+      the highest percentages of growth. Smaller cities in scenic or tourist areas have also have seen a lot
+      of population growth.</p>
 
-<h4>Data Sources</h4>
+    <h4>Data Sources</h4>
     <p>County population data layer produced by joining data downloaded from
       <a href="http://factfinder.census.gov/">American Fact Finder</a>
-        with U.S. County polygons downloaded from  <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
+      with U.S. County polygons downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
 
-        <p>City population data layer produced by joining data downloaded from
-          <a href="https://mapcruzin.com/free-wireless-gis-maps/free-wireless-gis-maps.htm">MapCruzin</a>
-            with U.S. County polygons downloaded from  <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
+      <p>City population data layer produced by joining data downloaded from
+        <a href="https://mapcruzin.com/free-wireless-gis-maps/free-wireless-gis-maps.htm">MapCruzin</a>
+        with U.S. County polygons downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
 
-        <p>State boundaries downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.  All data
-        prepared by U.S. Census Bureau, 2017.</p>
-      </footer>
+        <p>State boundaries downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>. All data
+          prepared by U.S. Census Bureau, 2017.</p>
+  </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
-    <script src="data/mountain_cities5.js"></script>
-    <script>
-    		// Map options
-    		var options = {
-    			center: [40.76, -109.89],
-    			zoom: 5.2,
-          zoomSnap: .1
-    		}
-    		// Create a Leaflet map in our division container with id of 'map'
-    		var map = L.map('map', options);
-    		// Leaflet providers base map URL
-    		var basemap_source =
-    			'https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/dark_all/{z}/{x}/{y}.png'
-    		// Leaflet providers attributes
-    		var basemap_options = {
-    			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-    			subdomains: 'abcd',
-    			maxZoom: 19
-    		};
-    		// Request some basemap tiles and add to the map
-    		var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
-var attributeValue = "percent_change";
-        var countyLayer = $.getJSON("../data/counties_pops.geojson", function(data) {
-          var dataLayer = L.geoJson(data, {
-            style: function(feature) {
-              return {
-                color: '#dddddd',
-                weight: 1.3,
-                fillOpacity: 1,
-                fillColor: '#1f78b4'
-              };
-}
-          }).addTo(map);
-          // call to new function here gets the data out of the
-          // callback function
-          drawMap(dataLayer);
-});
-// begin drawMap function-------------------------------------------------------
-function drawMap(dataLayer) {
-  var breaks = getClassBreaks(dataLayer);
-  drawLegend(breaks) // call to drawLegend function below
-  dataLayer.eachLayer(function(layer) {
-      var props = layer.feature.properties;
-      layer.setStyle({
-        fillColor: getColor(props[attributeValue], breaks)
-      });
-      // bind tooltip with script
-      layer.bindTooltip("<b>" + "County:" + " " + "</b>" + layer.feature.properties.NAME + "</br>"
-      + "<b>" + "2000 Pop:" + " " + "</b>" + layer.feature.properties.pop_2000.toLocaleString() + "</br>" + "<b>" + "2017 Pop:"
-      + " " + "</b>" + layer.feature.properties.pop_2017.toLocaleString()  + "<b>" + "</br>" + "Percent Change:" + "</b>" + " "
-      + layer.feature.properties.percent_change + "%");
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+  <script src="data/mountain_cities5.js"></script>
+  <script>
+    // Map options
+    var options = {
+      center: [40.76, -109.89],
+      zoom: 5.2,
+      zoomSnap: .1
+    }
+    // Create a Leaflet map in our division container with id of 'map'
+    var map = L.map('map', options);
+    // Leaflet providers base map URL
+    var basemap_source =
+      'https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/dark_all/{z}/{x}/{y}.png'
+    // Leaflet providers attributes
+    var basemap_options = {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    };
+    // Request some basemap tiles and add to the map
+    var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
+
+    var attributeValue = "percent_change"; // variable for eachLayer function below
+
+    // load counties_pops layer----------------------------------------------
+    var countyLayer = $.getJSON("../data/counties_pops.geojson", function(data) {
+      var dataLayer = L.geoJson(data, {
+        style: function(feature) {
+          return {
+            color: '#dddddd',
+            weight: 1.3,
+            fillOpacity: 1,
+            fillColor: '#1f78b4'
+          };
+        }
+      }).addTo(map);
+
+      drawMap(dataLayer);
     });
-}
-// begin getClassBreaks function------------------------------------------------
-function getClassBreaks(dataLayer) {
-  // create empty Array for storing values
-  var values = [];
-  // loop through all the counties
-  dataLayer.eachLayer(function(layer) {
-    var props = layer.feature.properties;
-    var value = props[attributeValue];
-    values.push(value);
-  });
-  // determine similar clusters
-  var clusters = ss.ckmeans(values, 5);
-  // create an array of the lowest value within each cluster
-  var breaks = clusters.map(function(cluster){
-    return [cluster[0],cluster.pop()];
-  });
-/*console.log(breaks);*/
-  return breaks; // return Array of class breaks
-} // end getClassBreaks function------------------------------------------------
-// begin getColor function------------------------------------------------------
-function getColor(d, breaks) {
-  /*console.log(d, breaks)*/
-  return d <= breaks[0][1] ? '#BDBDBD' :
-         d <= breaks[1][1]  ? '#fdbe85' :
-         d <= breaks[2][1]  ? '#fd8d3c' :
-         d <= breaks[3][1]  ? '#e6550d' :
-         d <= breaks[4][1]   ? '#a63603':
-                    'whitesmoke'; // Should have none of these
-}
-// end getColor function--------------------------------------------------------
-function drawLegend(breaks){
-    // create a new Leaflet control object, and position it top left
-    var legend = L.control({position: 'bottomleft'});
-    // when the legend is added to the map
-    legend.onAdd = function () {
+    // end load counties_pops layer---------------------------------------------
+
+    // begin drawMap function---------------------------------------------------
+    function drawMap(dataLayer) {
+      var breaks = getClassBreaks(dataLayer);
+      drawLegend(breaks) // call to drawLegend function below
+      // loop through all the counties
+      dataLayer.eachLayer(function(layer) {
+        var props = layer.feature.properties;
+        layer.setStyle({
+          fillColor: getColor(props[attributeValue], breaks)
+        }); // call to getColor function
+        // bind tooltip with script
+        layer.bindTooltip("<b>" + "County:" + " " + "</b>" + layer.feature.properties.NAME + "</br>" +
+          "<b>" + "2000 Pop:" + " " + "</b>" + layer.feature.properties.pop_2000.toLocaleString()
+          + "</br>" + "<b>" + "2017 Pop:" + " " + "</b>" + layer.feature.properties.pop_2017.toLocaleString() +
+          "<b>" + "</br>" + "Percent Change:" + "</b>" + " " + layer.feature.properties.percent_change + "%");
+      });
+    }
+    // begin getClassBreaks function--------------------------------------------
+    function getClassBreaks(dataLayer) {
+      // create empty Array for storing values
+      var values = [];
+      // loop through all the counties
+      dataLayer.eachLayer(function(layer) {
+        var props = layer.feature.properties;
+        var value = props[attributeValue];
+        values.push(value);
+      });
+      // determine similar clusters
+      var clusters = ss.ckmeans(values, 5);
+      // create an array of the lowest value within each cluster
+      var breaks = clusters.map(function(cluster) {
+        return [cluster[0], cluster.pop()];
+      });
+      /*console.log(breaks);*/
+      return breaks; // return Array of class breaks
+    } // end getClassBreaks function--------------------------------------------
+
+    // begin getColor function--------------------------------------------------
+    function getColor(d, breaks) {
+      /*console.log(d, breaks)*/
+      return d <= breaks[0][1] ? '#BDBDBD' :
+        d <= breaks[1][1] ? '#fdbe85' :
+        d <= breaks[2][1] ? '#fd8d3c' :
+        d <= breaks[3][1] ? '#e6550d' :
+        d <= breaks[4][1] ? '#a63603' :
+        'whitesmoke'; // Should have none of these
+    }
+    // end getColor function----------------------------------------------------
+
+    // begin drawLegend function
+    function drawLegend(breaks) {
+      // create a new Leaflet control object, and position it bottom left
+      var legend = L.control({
+        position: 'bottomleft'
+      });
+      // when the legend is added to the map
+      legend.onAdd = function() {
         // create a new HTML <div> element and give it a class name of "legend"
         var div = L.DomUtil.create('div', 'legend');
         // first append an <h3> tag to the div holding the current attribute
@@ -220,67 +242,56 @@ function drawLegend(breaks){
         div.innerHTML = "<h3>" + "Percent Gain/Loss" + "</h3>";
         // for each of our breaks
         for (var i = 0; i < breaks.length; i++) {
-            // determine the color associated with each break value,
-            // including the lower range value
-            var color = getColor(breaks[i][1], breaks);
-            // concatenate a <span> tag styled with the color and the range values
-            // of that class and include a label with the low and a high ends of that class range
-            div.innerHTML +=
-                '<span style="background:' + color + '"></span> ' +
-                '<label>'+(breaks[i][0]).toLocaleString() + '% &mdash; ' +
-                (breaks[i][1]).toLocaleString() + '%</label>';
+          // determine the color associated with each break value,
+          // including the lower range value
+          var color = getColor(breaks[i][1], breaks);
+          // concatenate a <span> tag styled with the color and the range values
+          // of that class and include a label with the low and a high ends of that class range
+          div.innerHTML +=
+            '<span style="background:' + color + '"></span> ' +
+            '<label>' + (breaks[i][0]).toLocaleString() + '% &mdash; ' +
+            (breaks[i][1]).toLocaleString() + '%</label>';
         }
         // return the populated div to be added to the map
         return div;
-    };
-    // add the legend to the map
-    legend.addTo(map);
-}
-// add mountain states layer----------------------------------------------------
-// Tell jQuery to wait until data is loaded before executing a function
-$.when(countyLayer).done(function () {
-  // load, filter, and style the state outline
-  $.getJSON("../data/mountain_states.geojson", function (data) {
-      var stateLayer = L.geoJson(data, {
-        style: function (feature) {
-          return {
-            // Let's experiment with these colors shortly
-            // color: '#222222', // Gray
-            color: 'black', // White
-            // Make line weight larger than the county outline
-            weight: .6,
-            fillOpacity: 0,
-            // This property allows us control interactivty of layer
-            interactive: false
-          };
-        },
-      });
-      // Add layer to map!
-      stateLayer.addTo(map)
-  });
-});
-// end add mountain cities layer------------------------------------------------
-/*$.getJSON("data/mountain_cities5.geojson", function(data) {
-  // add GeoJSON layer to the map once the file is loaded
-  var datalayer = L.geoJson(data ,{
-  onEachFeature: function(feature, featureLayer) {
-  featureLayer.bindPopup("<b>" + "City:" + " " + "</b>" + feature.properties.NAME + "</br>"
-  + "<b>" + "2000 Pop:" + " " + "</b>" + feature.properties.pop_2000.toLocaleString() + "</br>" + "<b>" + "2017 Pop:"
-  + " " + "</b>" + feature.properties.pop_2017.toLocaleString()  + "<b>" + "</br>" + "Percent Change:" + "</b>" + " "
-  + feature.properties.percent_change + "%");
-  }
-}).addTo(map);
-})
-  // call to new function here gets the data out of the
-  // callback function
-*/
-$.when(countyLayer).done(function () {
-  cities.features.sort(function(a, b) {
-    return b.properties.percent_change - a.properties.percent_change;
-  });
+      };
+      // add the legend to the map
+      legend.addTo(map);
+    }
+    // end drawLegend function--------------------------------------------------
 
-var mountainCities = L.geoJson(cities, {
-    pointToLayer: function(feature,latlng) {
+    // add mountain states layer------------------------------------------------
+    // Tell jQuery to wait until data is loaded before executing a function
+    $.when(countyLayer).done(function() {
+      // load, filter, and style the state outline
+      $.getJSON("../data/mountain_states.geojson", function(data) {
+        var stateLayer = L.geoJson(data, {
+          style: function(feature) {
+            return {
+              color: 'black',
+              weight: .6,
+              fillOpacity: 0,
+              // This property allows us control interactivty of layer
+              interactive: false
+            };
+          },
+        });
+        // Add layer to map!
+        stateLayer.addTo(map)
+      });
+    });
+    // end add mountain states layer--------------------------------------------
+
+    // begin add mountain cities layer------------------------------------------
+
+    // Tell jQuery to wait until data is loaded before executing a function
+    $.when(countyLayer).done(function() {
+      cities.features.sort(function(a, b) {
+        return b.properties.percent_change - a.properties.percent_change;
+      });
+
+      var mountainCities = L.geoJson(cities, {
+          pointToLayer: function(feature, latlng) {
             return L.circleMarker(latlng, {
               fillColor: '#314DFE',
               color: '#314DFE',
@@ -289,43 +300,47 @@ var mountainCities = L.geoJson(cities, {
               radius: feature.properties.percent_change * .35
 
             }); // end return l.circleMarker
-    }, // end pointToLayer function
-onEachFeature : function(feature,layer) {
-  layer.on('mouseover', function() {
-    layer.setStyle({
-      fillColor: 'yellow',
-      fillOpacity: .6
-    });
-  });
-  layer.on('mouseout', function() {
-    layer.setStyle({
-        fillColor: '#314DFE',
-        fillOpacity: .2
-    });
-  });
-
-  layer.bindPopup("<b>" + "City:" + " " + "</b>" + feature.properties.NAME + "," + " " + feature.properties.STATE + "</br>"
-  + "<b>" + "2000 Pop:" + " " + "</b>" + feature.properties.pop_2000.toLocaleString() + "</br>" + "<b>" + "2017 Pop:"
-  + " " + "</b>" + feature.properties.pop_2017.toLocaleString()  + "<b>" + "</br>" + "Percent Change:" + "</b>" + " "
-  + feature.properties.percent_change + "%");
-}
-
-
-}) // end L.geoJson method
-.addTo(map);
-console.log(mountainCities)
-
-var sourcesLayers = {
-  "Cities": mountainCities // hydroLayer references a Leaflet L.GeoJSON layer
-
-}
-
-L.control.layers(null, sourcesLayers, { collapsed:false }).addTo(map);
-
-}); // end when.done function
+          }, // end pointToLayer function
+          onEachFeature: function(feature, layer) {
+            // apply mouseover function
+            layer.on('mouseover', function() {
+              layer.setStyle({
+                fillColor: 'yellow',
+                fillOpacity: .6
+              });
+            });
+            layer.on('mouseout', function() {
+              layer.setStyle({
+                fillColor: '#314DFE',
+                fillOpacity: .2
+              });
+            });
+            // end mouseover function
+            // bind popup to each feature
+            layer.bindPopup("<b>" + "City:" + " " + "</b>" + feature.properties.NAME + "," + " " +
+            feature.properties.STATE + "</br>" + "<b>" + "2000 Pop:" + " " + "</b>" +
+            feature.properties.pop_2000.toLocaleString() + "</br>" + "<b>" + "2017 Pop:" +
+              " " + "</b>" + feature.properties.pop_2017.toLocaleString() + "<b>" + "</br>" +
+              "Percent Change:" + "</b>" + " " + feature.properties.percent_change + "%");
+          }
 
 
+        }) // end L.geoJson method
+        .addTo(map);
+      // end add mountain cities layer------------------------------------------------
 
+      // begin L control layers method--------------------------------------------------
+      var sourcesLayers = {
+        "Cities": mountainCities // hydroLayer references a Leaflet L.GeoJSON layer
+
+      }
+
+      L.control.layers(null, sourcesLayers, {
+        collapsed: false
+      }).addTo(map);
+
+    }); // end when.done function
+    // end L control layers method--------------------------------------------------
   </script>
 
 </body>
