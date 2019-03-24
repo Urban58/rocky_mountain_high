@@ -138,7 +138,7 @@
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
     <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
-    <script src="../data/mountain_cities5.js"></script>
+    <script src="data/mountain_cities5.js"></script>
     <script>
       // Map options
       var options = {
@@ -161,7 +161,7 @@
       var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
       var attributeValue = "percent_change"; // variable for eachLayer function below
       // load counties_pops layer----------------------------------------------
-      var countyLayer = $.getJSON("../data/counties_pops.geojson", function(data) {
+      var countyLayer = $.getJSON("data/counties_pops.geojson", function(data) {
         var dataLayer = L.geoJson(data, {
           style: function(feature) {
             return {
@@ -258,7 +258,7 @@
       // Tell jQuery to wait until data is loaded before executing a function
       $.when(countyLayer).done(function() {
         // load and style the state outline
-        $.getJSON("../data/mountain_states.geojson", function(data) {
+        $.getJSON("data/mountain_states.geojson", function(data) {
           var stateLayer = L.geoJson(data, {
             style: function(feature) {
               return {
