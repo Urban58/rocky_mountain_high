@@ -331,17 +331,17 @@
               // Apply layer styles
               layer.setStyle({
                 weight: 1,
-                color: '#314DFE',
-                fillColor: '#314DFE',
+                color: '#3A5DF9',
+                fillColor: '#3A5DF9',
                 fillOpacity: .4,
                 radius: getRadius(feature.properties.percent_change) // calls getRadius function
               });
               // Apply mouseout styles
               layer.on('mouseout', function() {
                 layer.setStyle({
-                  fillColor: '#314DFE',
+                  fillColor: '#3A5DF9',
                   fillOpacity: .4,
-                  color: '#314DFE'
+                  color: '#3A5DF9'
                 });
               });
             } else if (feature.properties.percent_change < 0) {
