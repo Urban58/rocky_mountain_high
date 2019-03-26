@@ -16,21 +16,80 @@
       body {
         margin: 0;
         padding: 0;
-        background: whitesmoke;
-        font-family: Helvetica;
-        color: #0D0000;
+        background: #e3e3e6;
+        Font-Family: 'Lora', Serif;
+        font-weight: 300;
+        color: #3d3d3d;
+        font-size: 100%;
       }
 
-      header {
+      header,
+      section,
+      footer {
         width: 80%;
-        margin: 10px auto 10px auto;
+        margin: 10px auto;
       }
 
       h1 {
-        display: inline-block;
-        margin-right: 20px;
-        color: #001323;
+        font-weight: 800;
+        font-size: 2.5em;
+        font-style: italic;
+        Font-Family: 'Roboto', Sans-Serif;
+        letter-spacing: .02em;
+        margin: 5px 0;
       }
+
+      h2 {
+        font-weight: 300;
+        color: #63666a;
+        font-size: 1.4em;
+        letter-spacing: .04em;
+
+        Font-Family: 'Roboto', Sans-Serif;
+        margin: 5px 0;
+      }
+
+      h3 {
+        font-weight: 300;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+        Font-Family: 'Lora', Serif;
+        Color: gray;
+      }
+
+      p {
+        font-size: 1.1em;
+        line-height: 1.4em;
+        margin-bottom: 5px;
+      }
+
+      ul {
+        padding: 0px 20px 4px 20px;
+        font-size: 1.1em;
+        line-height: 1.2em;
+        color: #63666a;
+      }
+
+      li {
+        margin: 10px 0
+      }
+
+      hr {
+        margin: 20px 0;
+        border: 0;
+        height: 1px;
+        background: #63666a;
+      }
+
+      .linkbox {
+        margin: 3px 0 20px 0;
+        display: block;
+        font-size: 0.9em;
+        font-weight: 300;
+        line-height: 1.3em;
+      }
+
+
 
       h5 {
         display: inline-block;
@@ -38,23 +97,44 @@
       }
 
       #map {
-        width: 80%;
-        height: 640px;
-        margin: 10px 10%;
-        background: #585858;
-        border: 2px solid #dddedf;
+        width: 100%;
+        height: 580px;
+        margin: 20px auto;
       }
 
-      footer {
-        padding: 6px 10%;
-        width: 80%;
+      .max-image-width {
+        width: 100%;
       }
 
-      p {
-        font-size: 1em;
-        color: #001323;
+      /* Use float property to make two-column layout */
+      .first-column {
+        float: left;
+        width: 49%;
+        padding-right: 2%;
       }
 
+      .column {
+        float: left;
+        width: 49%;
+      }
+
+      /* Clear floats after the columns */
+      .row::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      /* When browser is 900px wide or less */
+      @media screen and (max-width: 900px) {
+
+        .first-column,
+        .second-column {
+          width: 100%;
+        }
+      }
+
+      /* map legend styles*/
       .legend {
         padding: 6px 8px;
         font-size: 1em;
@@ -94,45 +174,46 @@
       <h1>Rocky Mountain High - Population Growth in the Mountain States (2000-2017)</h1>
 
     </header>
+    <section>
 
-    <div id='map'></div>
+      <div class="row">
+        <div id="map"></div>
 
-    <footer>
-      <p>Map authored by Tim Kohaya for NewMaps Plus Course 672</p>
+        <div class="first-column">
+          <h2> Map authored by Tim Kohaya for NewMaps Plus Course 672.</h2>
 
-      <h4>About this Map</h4>
-      <p>This map shows the percentage of population growth for counties and
-        cities in the Mountain States of the U.S. between 2000 and 2017. Cities
-        shown on the map had a population of at least 30,000 in 2000. You can hover
-        over a County and see the county's population in 2000 and 2017 and the percent change.
-        You can also click on a city and see the same information. Cities in blue have
-        had a percentage gain in population while cities in red (only two) have had a percentage
-        loss in population. The cities layer toggles off and on. Data from 2000 is a population
-        count (2000 Census) while data from 2017 is a population estimate (2012-2017 American Fact Finder).</p>
+          <h4>About this Map</h4>
+          <p>A lot of people are moving to the great American interior, better known as the Mountain States. Topographically
+            dominated by the Rocky Mountains and smaller mountain ranges, the Mountain States are attracting many people from
+            other parts of the country (particularly California) to relocate to the last of the Old West. You can see this trend
+            by interacting with the above map which shows the percentage of population growth for counties and cities in the Mountain
+            States between 2000 and 2017. You can hover over a County and see the county’s population and the percent change.
+            You can also click on a city and see the same information. Cities in blue have had a percentage gain in population while
+            cities in red (only two) have had a percentage loss in population. The cities layer toggles off and off.
+            .</p>
 
-      <h4>What the Data Shows</h4>
-      <p>Many counties of the Mountain States have seen large population growth between
-        2000 and 2017. Counties in scenic or tourist areas such as those in western Colorado,
-        western Montana and central New Mexico have high percentages of growth. Counties with traditional
-        retirement areas such as those in Arizona and southern Nevada also have high percentages of growth.</p>
+          <h4>Data Sources</h4>
+          <p>County population data layer produced by joining data downloaded from
+            <a href="http://factfinder.census.gov/">American Fact Finder</a>
+            with U.S. County polygons downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
 
-      <p>Like many counties in the Mountain States, many cities in the Mountain States have also seen large population
-        growth. Major cities such as Phoenix, Las Vegas and Denver have seen growth but it is their suburbs that have
-        the highest percentages of growth. Smaller cities in scenic or tourist areas have also have seen a lot
-        of population growth.</p>
+            <p>City population data layer produced by joining data downloaded from
+              <a href="https://mapcruzin.com/free-wireless-gis-maps/free-wireless-gis-maps.htm">MapCruzin</a>
+              with U.S. County polygons downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
 
-      <h4>Data Sources</h4>
-      <p>County population data layer produced by joining data downloaded from
-        <a href="http://factfinder.census.gov/">American Fact Finder</a>
-        with U.S. County polygons downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
+              <p>State boundaries downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>. All data
+                prepared by U.S. Census Bureau, 2017.</p>
+        </div>
+        <div class="column">
+          <img class="max-image-width" src="data/town.jpg" title="Telluride, Colorado">
+          <div class="linkbox">
+            Charming towns and great scenery are attracting people to the Mountain States. Source: <a href="https://www.thrillist.com/travel/nation/the-best-mountain-towns-in-america">thrillist.com</a>
+          </div>
 
-        <p>City population data layer produced by joining data downloaded from
-          <a href="https://mapcruzin.com/free-wireless-gis-maps/free-wireless-gis-maps.htm">MapCruzin</a>
-          with U.S. County polygons downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>.<br>
+        </div>
+      </div>
+    </section>
 
-          <p>State boundaries downloaded from <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html">U.S. Boundary Shapefiles</a>. All data
-            prepared by U.S. Census Bureau, 2017.</p>
-    </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
@@ -143,7 +224,7 @@
       // Map options
       var options = {
         center: [40.76, -109.89],
-        zoom: 5.2,
+        zoom: 5.0,
         zoomSnap: .1
       }
       // Create a Leaflet map in our division container with id of 'map'
@@ -327,21 +408,21 @@
 
             // Apply layer styles and mouseover styles to cities with population gain and cities with
             // population loss using if/else if statement----------------------------------------------------------
-              if (feature.properties.percent_change > 0) {
+            if (feature.properties.percent_change > 0) {
               // Apply layer styles
               layer.setStyle({
                 weight: 1,
-                color: '#3A5DF9',
-                fillColor: '#3A5DF9',
+                color: '#314DFE',
+                fillColor: '#314DFE',
                 fillOpacity: .4,
                 radius: getRadius(feature.properties.percent_change) // calls getRadius function
               });
               // Apply mouseout styles
               layer.on('mouseout', function() {
                 layer.setStyle({
-                  fillColor: '#3A5DF9',
+                  fillColor: '#314DFE',
                   fillOpacity: .4,
-                  color: '#3A5DF9'
+                  color: '#314DFE'
                 });
               });
             } else if (feature.properties.percent_change < 0) {
@@ -370,7 +451,7 @@
           var radius = Math.sqrt(area / Math.PI);
           return radius * 3;
         }
-        // end getRadiusfunction----------------------------------------------------
+        // end getRadiusfunction--------------------------------------------------
 
         // begin L control layers method------------------------------------------
         var sourcesLayers = {
@@ -380,9 +461,9 @@
         L.control.layers(null, sourcesLayers, {
           collapsed: false
         }).addTo(map);
-        // end L control layers method----------------------------------------------
+        // end L control layers method--------------------------------------------
 
-      }) // end when.done function-----------------------------------------------------
+      }) // end when.done function------------------------------------------------
     </script>
 
   </body>
