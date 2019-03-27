@@ -265,8 +265,9 @@
       var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
       var attributeValue = "percent_change"; // variable for eachLayer function below
       // load counties_pops layer----------------------------------------------
+      var dataLayer
       var countyLayer = $.getJSON("data/counties_pops.geojson", function(data) {
-        var dataLayer = L.geoJson(data, {
+        dataLayer = L.geoJson(data, {
           style: function(feature) {
             return {
               color: '#dddddd',
@@ -467,7 +468,7 @@
               });
             }
           }
-        }).addTo(map);
+        })
         // end add mountain cities layer------------------------------------------
         // begin getRadius function-----------------------------------------------
         function getRadius(area) {
@@ -479,7 +480,7 @@
         // begin L control layers method------------------------------------------
         var sourcesLayers = {
 
-          "Cities": mountainCities // hydroLayer references a Leaflet L.GeoJSON layer
+          "Cities": mountainCities
         }
         L.control.layers(null, sourcesLayers, {
           collapsed: false
