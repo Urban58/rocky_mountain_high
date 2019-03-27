@@ -156,12 +156,13 @@
         border-radius: 5px;
       }
 
-      .legend h3 {
+      .legend h3, .leaflet-control-layers span {
         font-size: 1.1em;
         font-weight: normal;
         color: #001323;
         margin: 0 0 10px 0;
       }
+
 
       .legend span {
         width: 20px;
@@ -480,8 +481,8 @@
         // begin L control layers method------------------------------------------
         var sourcesLayers = {
 
-          "Counties": dataLayer,
-          "Cities": mountainCities
+          "<span>Counties</span>": dataLayer,
+          "<span>Cities</span>": mountainCities
         }
         L.control.layers(null, sourcesLayers, {
           collapsed: false
