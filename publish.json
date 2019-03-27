@@ -1,1 +1,8 @@
+{
+  "title": "Rocky Mountain High - Population Growth in the Mountain States (2000-2017)",
+  "info": "Shows changes in population for counties and cities (at least 30,000 population in 2000) in the Mountain States of the U.S.",
+  "coordinates": [40.76, -109.89],
 
+  "author": null,
+  "link": "https://urban58.github.io/rocky_mountain_high/" 
+}
