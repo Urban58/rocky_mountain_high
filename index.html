@@ -201,9 +201,10 @@
             dominated by the Rocky Mountains and smaller mountain ranges, the Mountain States are attracting many people from
             other parts of the country (particularly California) to relocate to the last of the Old West. You can see this trend
             by interacting with the above map which shows the percentage of population growth for counties and cities in the Mountain
-            States between 2000 and 2017. You can hover over a county and see the county’s population and the percent change.
+            States between 2000 and 2017. You can click a county with your mouse and see the county’s population and the percent change.
             You can also click on a city (had at least 30,000 population in 2000) and see the same information. Cities in blue have had
-            a percentage gain in population while cities in red (only two) have had a percentage loss in population. The cities layer toggles off and on.</p>
+            a percentage gain in population while cities in red (only two) have had a percentage loss in population. The counties and cities
+            layers toggle on and off.</p>
 
           <h4>Data Sources</h4>
           <p>County population data layer produced by joining data downloaded from
@@ -232,7 +233,7 @@
       <a href="https://newmapsplus.github.io">
         <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-nmp-75px-h-gray.png" alt="University of Kentucky Geography">
       </a>
-  
+
       <a href="https://uky-gis.github.io">
         <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-geography-75px-h.png" alt="University of Kentucky Geography">
       </a>
@@ -292,7 +293,7 @@
             fillColor: getColor(props[attributeValue], breaks)
           }); // call to getColor function
           // bind tooltip with script
-          layer.bindTooltip("<b>" + "County:" + " " + "</b>" + layer.feature.properties.NAME + "</br>" +
+          layer.bindPopup("<b>" + "County:" + " " + "</b>" + layer.feature.properties.NAME + "</br>" +
             "<b>" + "2000 Pop:" + " " + "</b>" + layer.feature.properties.pop_2000.toLocaleString() +
             "</br>" + "<b>" + "2017 Pop:" + " " + "</b>" + layer.feature.properties.pop_2017.toLocaleString() +
             "<b>" + "</br>" + "Percent Change:" + "</b>" + " " + layer.feature.properties.percent_change + "%");
