@@ -202,7 +202,7 @@
             other parts of the country (particularly California) to relocate to the last of the Old West. You can see this trend
             by interacting with the above map which shows the percentage of population growth for counties and cities in the Mountain
             States between 2000 and 2017. You can click on a county with your mouse and see the county’s population and the percent change.
-            You can also click on a city (had at least 30,000 population in 2000) and see the same information. Cities in blue have had
+            You can also mouse over a city (had at least 30,000 population in 2000) and see the same information. Cities in blue have had
             a percentage gain in population while cities in red (only two) have had a percentage loss in population. The counties and cities
             layers toggle on and off.</p>
 
@@ -292,7 +292,7 @@
           layer.setStyle({
             fillColor: getColor(props[attributeValue], breaks)
           }); // call to getColor function
-          // bind tooltip with script
+          // bind popup with script
           layer.bindPopup("<b>" + "County:" + " " + "</b>" + layer.feature.properties.NAME + "</br>" +
             "<b>" + "2000 Pop:" + " " + "</b>" + layer.feature.properties.pop_2000.toLocaleString() +
             "</br>" + "<b>" + "2017 Pop:" + " " + "</b>" + layer.feature.properties.pop_2017.toLocaleString() +
@@ -425,8 +425,8 @@
               })
             })
 
-            // bind popup to each feature
-            layer.bindPopup("<b>" + "City:" + " " + "</b>" + feature.properties.NAME + "," + " " +
+            // bind tooltip to each feature
+            layer.bindTooltip("<b>" + "City:" + " " + "</b>" + feature.properties.NAME + "," + " " +
               feature.properties.STATE + "</br>" + "<b>" + "2000 Pop:" + " " + "</b>" +
               feature.properties.pop_2000.toLocaleString() + "</br>" + "<b>" + "2017 Pop:" +
               " " + "</b>" + feature.properties.pop_2017.toLocaleString() + "<b>" + "</br>" +
